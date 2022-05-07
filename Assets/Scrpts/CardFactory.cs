@@ -9,7 +9,6 @@ interface CardFactory {
 
 class RandomCardFactory: CardFactory {
     public Card createCard() {
-        CardColor cardColor;
         Array cardValues = Enum.GetValues(typeof(CardValue));
         Array cardTypes = Enum.GetValues(typeof(CardType));
         System.Random random = new System.Random();
