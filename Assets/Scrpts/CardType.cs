@@ -31,22 +31,22 @@ public enum CardValue {
 }
 
 public static class CardValueExtensions {
-    private static string getValueName(this CardValue value) {
+    public static string getValueName(this int value) {
         switch (value) {
-            case CardValue.jack:
+            case 11:
                 return "J";
-            case CardValue.queen:
+            case 12:
                 return "Q";
-            case CardValue.king:
+            case 13:
                 return "K";
-            case CardValue.ace:
+            case 14:
                 return "A";
             default:
                 return $"{value}";
         }
     }
 
-    private static string getSymbol(this CardType type) {
+    public static string getSymbol(this CardType type) {
         switch (type) {
             case CardType.heart:
                 return "♥";

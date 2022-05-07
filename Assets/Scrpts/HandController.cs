@@ -5,10 +5,9 @@ using UnityEngine;
 public class HandController: MonoBehaviour {
     public GameObject prefab;
     public Transform point;
-    public int cardLimit = 2;
+    public int cardLimit;
 
-    private CardFactory cardFactory;
-    List<Card> cardsInHand;
+    private List<Card> cardsInHand;
     private bool updateHand = false;
     private bool blockCardCreation = false;// Bloquea la creación de cartas
 
@@ -17,7 +16,6 @@ public class HandController: MonoBehaviour {
     private float startDisplayXPosition = 0.0f;
     void Start() {
         cardsInHand = new List<Card>();
-        cardFactory = new RandomCardFactory();
     }
 
     void Update() {
@@ -25,8 +23,7 @@ public class HandController: MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 blockCardCreation = true;
                 updateHand = true;
-                Card card = cardFactory.createCard();
-                //Debug.Log($"Card value: {card.value}, color: {card.color}, type: {card.cardType}");
+                Card card = Deck.drawCard();
                 cardsInHand.Add(card);
             }
 
@@ -77,5 +74,9 @@ public class HandController: MonoBehaviour {
             startDisplayXPosition += spaceForCard;
         }
         yield return null;
+    }
+
+    public List<Card> getCardsInHand() {
+        return cardsInHand;
     }
 }

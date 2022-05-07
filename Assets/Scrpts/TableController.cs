@@ -11,19 +11,17 @@ public static class Extensions {
 }
 
 public class TableController: MonoBehaviour {
-    public int cardTableLimit = 5;
+    public int cardTableLimit;
     private Card[] cardsInTable;
     public Transform point;
     public GameObject prefab;
     private bool isCardRevelationBlocked;// Bloquea la revelación de cartas
 
-    private CardFactory cardFactory;
     private float spaceForCard = 0.4f;
     private float startDisplayXPosition = 0.0f;
     void Start() {
         cardsInTable = new Card[cardTableLimit];
         isCardRevelationBlocked = false;
-        cardFactory = new RandomCardFactory();
         displayDefaultCards();
     }
 
@@ -73,10 +71,12 @@ public class TableController: MonoBehaviour {
     }
 
     private void revealOneCardFromTable() {
+        // En caso de que exista una carta nula en la mesa (es decir, una carta boca abajo) se toma el indice de dicha carta
+        // y se remplaza por una del deck
         if (cardsInTable.Contains(null)) {
             Card nullCardObject = cardsInTable.Where(card => card == null) as Card;
             int nullIndex = cardsInTable.findIndex(nullCardObject);
-            cardsInTable[nullIndex] = cardFactory.createCard();
+            cardsInTable[nullIndex] = Deck.drawCard();
             displayDefaultCards();
         }
     }
