@@ -80,4 +80,9 @@ public class TableController: MonoBehaviour {
             displayDefaultCards();
         }
     }
+
+    public bool allCardsInTableAreRevealed() {
+        bool allCardsRevealed = !cardsInTable.Contains(null);
+        return allCardsRevealed;
+    }
 }

@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.15f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scrpts\PlayerStats.cs" />
     <Compile Include="Assets\Scrpts\Deck.cs" />
     <Compile Include="Assets\Scrpts\TableController.cs" />
     <Compile Include="Assets\Scrpts\HandController.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="Assets\Scrpts\CardController.cs" />
     <Compile Include="Assets\Scrpts\CardFactory.cs" />
     <Compile Include="Assets\Scrpts\Card.cs" />
-    <Compile Include="Assets\Scrpts\PlayerStats.cs" />
+    <Compile Include="Assets\Scrpts\OponentHandController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -17,6 +17,13 @@ public class CardController: MonoBehaviour {
         setCardSprite();
     }
 
+    public void setHidenCard(Card card) {
+        this.card = card;
+        string spriteName = "blue_deck";
+        gameObject.GetComponent<SpriteRenderer>().sprite = cardsSprite.Find(s => s.name == spriteName);
+        Debug.Log($"Hidden card spriteName: {spriteName}, card value {CardValueExtensions.getValueName(card.getValue())}{CardValueExtensions.getSymbol(card.getCardType())}");
+    }
+
     private void setCardSprite() {
         string spriteName = $"{card.getValue()}_{card.getCardType()}";
         gameObject.GetComponent<SpriteRenderer>().sprite = cardsSprite.Find(s => s.name == spriteName);
